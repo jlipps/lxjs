@@ -1,0 +1,33 @@
+{
+  "name": "jlipps-lxjs",
+  "description": "jlipps's LxJS demos",
+  "tags": [
+    "automation",
+    "javascript",
+    "music",
+    "conferences"
+  ],
+  "version": "0.0.1",
+  "author": "jlipps@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlipps/lxjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jlipps/lxjs/issues"
+  },
+  "engines": [
+    "node"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "dependencies": {
+    "underscore": "~1.4.3",
+    "mocha": "~1.8.1",
+    "should": "~1.2.1",
+    "yiewd": "~0.0.5",
+    "grunt-mocha-test": "~0.2.0",
+    "grunt-contrib-jshint": "~0.1.1"
+  }
+}
