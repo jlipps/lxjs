@@ -27,35 +27,34 @@ var drumScore = (function() {
 var pianoScore = 'c4 d8 e8 f8 g8 a8 b8 C4 b8 a8 g8 f8 e8 d8 ';
 pianoScore = pianoScore + pianoScore + 'c4';
 
-var initPiano = o_O(function*(driver, piano) {
-  yield driver.init(caps);
+var initPiano = o_O(function*() {
+  var pianoDriver = yiewd.remote('localhost', 4723);
+  var piano = new Piano(pianoDriver);
+  yield pianoDriver.init(caps);
   yield piano.chooseFromMainMenu();
   yield sleep(0.6);
   yield piano.chooseOctave(4);
   yield sleep(0.5);
+  return [pianoDriver, piano];
 });
 
-var initDrums = o_O(function*(driver, drums) {
-  yield driver.init(caps);
+var initDrums = o_O(function*() {
+  var drumsDriver = yiewd.remote('localhost', 4725);
+  var drums = new Drums(drumsDriver);
+  yield drumsDriver.init(caps);
   yield drums.chooseFromMainMenu();
   yield sleep(0.6);
+  return [drumsDriver, drums];
 });
 
 run(function*() {
-  var pianoDriver = yiewd.remote('localhost', 4723);
-  var piano = new Piano(pianoDriver);
-  var drumsDriver = yiewd.remote('localhost', 4725);
-  var drums = new Drums(drumsDriver);
-  yield ll([
-    [initPiano, pianoDriver, piano],
-    [initDrums, drumsDriver, drums]
-  ]);
+  var res = yield ll([initPiano, initDrums]);
 
   var director = new Director(96);
-  director.addPart(drums, drumScore);
-  director.addPart(piano, pianoScore);
+  director.addPart(res[1][1], drumScore);
+  director.addPart(res[0][1], pianoScore);
   yield director.playScore();
 
-  yield ll([pianoDriver.quit, drumsDriver.quit]);
+  yield ll([res[0][0].quit, res[1][0].quit]);
 });
 
