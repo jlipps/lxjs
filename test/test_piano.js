@@ -18,6 +18,6 @@ driver.run(function*() {
   yield piano.chooseFromMainMenu();
   yield piano.chooseOctave(4);
   yield sleep(0.6);
-  yield piano.playJurassicPark();
+  yield piano.playScale();
   yield this.quit();
 });

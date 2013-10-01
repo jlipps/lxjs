@@ -32,9 +32,7 @@ var initPiano = o_O(function*() {
   var piano = new Piano(pianoDriver);
   yield pianoDriver.init(caps);
   yield piano.chooseFromMainMenu();
-  yield sleep(0.6);
   yield piano.chooseOctave(4);
-  yield sleep(0.5);
   return [pianoDriver, piano];
 });
 
@@ -43,7 +41,6 @@ var initDrums = o_O(function*() {
   var drums = new Drums(drumsDriver);
   yield drumsDriver.init(caps);
   yield drums.chooseFromMainMenu();
-  yield sleep(0.6);
   return [drumsDriver, drums];
 });
 
