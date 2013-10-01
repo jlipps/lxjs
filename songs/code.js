@@ -3,6 +3,7 @@
 "use strict";
 
 var yiewd = require('yiewd')
+  , _ = require('underscore')
   , monocle = require('monocle-js')
   , o_O = monocle.o_O
   , ll = monocle.ll
@@ -20,7 +21,6 @@ var yiewd = require('yiewd')
       'app-activity': 'souvey.musical.activities.MainMenu'
     }
   , tempo = 102;
-
 
 var initPiano = o_O(function*(port, octave) {
   var pianoDriver = yiewd.remote('localhost', port);
@@ -52,12 +52,19 @@ run(function*() {
   var drums2 = res[2][1];
   var piano2 = res[3][1];
 
-  var director = new Director(tempo);
-  director.addPart(piano1, scores.piano1);
-  director.addPart(piano2, scores.piano2);
-  director.addPart(drums1, scores.drums1);
-  director.addPart(drums2, scores.drums2);
-  yield director.playScore();
+  var songParts = [];
+  _.each(scores.structure, function(part) {
+    var director = new Director(tempo);
+    director.addPart(piano1, scores.piano1[part]);
+    director.addPart(piano2, scores.piano2[part]);
+    director.addPart(drums1, scores.drums1[part]);
+    director.addPart(drums2, scores.drums2[part]);
+    songParts.push(director);
+  });
 
-  yield ll([res[0][0].quit, res[1][0].quit, res[2][0].quit, res[3][0].quitj]);
+  for (var i = 0; i < songParts.length; i++ ) {
+    yield songParts[i].playScore();
+  }
+
+  yield ll([res[0][0].quit, res[1][0].quit, res[2][0].quit, res[3][0].quit]);
 });

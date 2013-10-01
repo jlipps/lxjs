@@ -46,7 +46,7 @@ exports = {
     [2, "done\n\n So where's my "]],
   chorus1: chorus,
   chorusOut1: chorusOut,
-  preverse3: [[4, '']],
+  intro2: [[4, '']],
   verse3: [
     [2, "My quality assured\n"],
     [2, "Breakfast is underway\n"],
