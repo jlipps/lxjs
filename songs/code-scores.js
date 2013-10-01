@@ -36,7 +36,7 @@ exports.drums1 = (function() {
   chorus2 = chorus1;
   chorusOut1 = repeat('k4 k4 s8 k4 s8 ', 8);
   intro2 = intro1;
-  chorusOut2 = chorusOut1;
+  chorusOut2 = repeat(chorusOut1, 2);
   outro = 'k8 s4 s8 ta8 s4 s8 k8 s4 s8 ta8 s8 k4 ';
   return tapoff + intro1 + verse1 + verse2 + bridge1 + chorus1 +
          chorusOut1 + intro2 + verse3 + bridge2 + chorus2 + chorusOut2 +
@@ -53,7 +53,7 @@ exports.drums2 = (function() {
   verse2 = verse3 = verse1;
   bridge1 = repeat('r8 h4 h4 h4 h8 ', 8);
   bridge2 = bridge1;
-  chorus1 = repeat('c4 h8 h8 i4 h8 h8 ', 16);
+  chorus1 = repeat('c4 h8 h8 i4 h8 h8 i4 h8 h8 i4 h8 h8 ', 8);
   chorus2 = chorus1;
   chorusOut1 = bridge1;
   chorusOut2 = repeat(chorusOut1, 2);
@@ -94,7 +94,7 @@ exports.piano1 = (function() {
   verse3 = verse1;
   bridge2 = bridge1;
   chorus2 = chorus1;
-  chorusOut2 = chorusOut1;
+  chorusOut2 = repeat(chorusOut1, 2);
   outro = 'c8 g8 C8 g8 c8 g8 C8 g8 c8 g8 C8 g8 c8 g8 C4 ';
   return tapoff + intro1 + verse1 + verse2 + bridge1 + chorus1 +
          chorusOut1 + intro2 + verse3 + bridge2 + chorus2 + chorusOut2 +
@@ -129,7 +129,7 @@ exports.piano2 = (function() {
   verse3 = verse1;
   bridge2 = bridge1;
   chorus2 = chorus1;
-  chorusOut2 = chorusOut1;
+  chorusOut2 = repeat(chorusOut1, 2);
   outro = 'c8 g4 c8 c8 g4 c8 c8 g4 c8 c8 g8 c4 ';
   return tapoff + intro1 + verse1 + verse2 + bridge1 + chorus1 +
          chorusOut1 + intro2 + verse3 + bridge2 + chorus2 + chorusOut2 +

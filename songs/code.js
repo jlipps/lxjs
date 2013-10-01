@@ -41,10 +41,10 @@ var initDrums = o_O(function*(port) {
 
 run(function*() {
   var res = yield ll([
-    [initPiano, 4723, 4],
-    [initDrums, 4725],
-    [initDrums, 4726],
-    [initPiano, 4727, 2]
+    [initPiano, process.env.PIANO1_PORT, 4],
+    [initDrums, process.env.DRUMS1_PORT],
+    [initDrums, process.env.DRUMS2_PORT],
+    [initPiano, process.env.PIANO2_PORT, 2]
   ]);
 
   var piano1 = res[0][1];
