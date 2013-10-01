@@ -16,5 +16,13 @@ elif [[ $1 = "PIANO2" ]]; then
     UDID="emulator-5560"
     PORT=$PIANO2_PORT
     DPORT=$PIANO2_DPORT
+elif [[ $1 = "LYRICS" ]]; then
+    PORT=$LYRICS_PORT
 fi
-node $APPIUM_HOME/server.js -U $UDID -p $PORT -dp $DPORT
+
+pushd $APPIUM_HOME
+if [[ $1 = "LYRICS" ]]; then
+    node server.js -p $PORT
+else
+    node server.js -U $UDID -p $PORT -dp $DPORT
+fi
