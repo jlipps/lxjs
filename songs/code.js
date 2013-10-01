@@ -88,9 +88,11 @@ run(function*() {
   });
 
   for (var i = 0; i < songParts.length; i++ ) {
+    var shouldClear = _.contains(['chorus1', 'chorus2', 'verse3'],
+        scores.structure[i]);
     yield ll([
       songParts[i].playScore.bind(songParts[i]),
-      [writer.writeSegment.bind(writer), lyricParts[i]]
+      [writer.writeSegment.bind(writer), lyricParts[i], shouldClear]
     ]);
   }
 
