@@ -66,5 +66,7 @@ run(function*() {
     yield songParts[i].playScore();
   }
 
+  yield sleep(5);
+
   yield ll([res[0][0].quit, res[1][0].quit, res[2][0].quit, res[3][0].quit]);
 });
