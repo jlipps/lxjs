@@ -45,7 +45,8 @@ module.exports = {
     [1, "Without any"],
     [1, "one\n\n"]],
   verse2: [
-    [1, "I guess I'll get out of "],
+    [0.5, "I guess I'll get "],
+    [0.5, "out of "],
     [0.75, "bed\n"],
     [0.25, "Though there's "],
     [1, "nothing for me to "],

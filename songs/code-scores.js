@@ -151,8 +151,10 @@ exports.piano2 = (function() {
                repeat('c8 c4 g8 ', 4) +
                repeat('f8 f4 C8 ', 4) +
                repeat('a8 a4 e8 ', 2) + repeat('e8 e4 b8 ', 2);
-  var chorusOut = repeat('f4. f8 C4 f4 ', 4) +
-                  repeat('a4. a8 C4 a4 ', 4);
+  var chorusOut = repeat('f4. f8 C4 f4 ', 2) +
+                  repeat('a4. a8 C4 a4 ', 2) +
+                  repeat('f4. f8 C4 f4 ', 2) +
+                  'a4. a8 C4 a4 g4. g8 b4 d4 d4 ';
   return _.extend(songSkeleton(), {
     tapoff: repeat('r1 ', 2),
     intro1: repeat('r1 ', 4),
