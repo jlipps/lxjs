@@ -14,10 +14,14 @@ Setup
 * `npm install`
 * Make 4 landscape Nexus 7 avds and launch them
 * Launch 5 different instances of Appium with these commands:
+
+    ```
     ./appium.sh DRUMS1
     ./appium.sh DRUMS2
     ./appium.sh PIANO1
     ./appium.sh PIANO2
     ./appium.sh LYRICS
+    ```
+
 * Get your guitar ready...
 * `./play.sh`
