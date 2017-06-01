@@ -37,6 +37,7 @@ var initPiano = o_O(function*(port, octave) {
   var pianoDriver = yiewd.remote('localhost', port);
   var piano = new Piano(pianoDriver);
   yield pianoDriver.init(souveyCaps);
+  yield sleep(1);
   yield piano.chooseFromMainMenu();
   yield piano.chooseOctave(octave);
   return [pianoDriver, piano];
@@ -46,6 +47,7 @@ var initDrums = o_O(function*(port) {
   var drumsDriver = yiewd.remote('localhost', port);
   var drums = new Drums(drumsDriver);
   yield drumsDriver.init(souveyCaps);
+  yield sleep(1);
   yield drums.chooseFromMainMenu();
   return [drumsDriver, drums];
 });
